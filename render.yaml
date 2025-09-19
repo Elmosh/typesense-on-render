@@ -10,7 +10,7 @@ services:
     mountPath: /typesense-data
     sizeGB: 1  
   dockerCommand: >
-      typesense-server --data-dir /typesense-data --api-key=$TYPESENSE_API_KEY --enable-cors
+      typesense --data-dir /typesense-data --api-key=$TYPESENSE_API_KEY --enable-cors
   envVars:
   - key: TYPESENSE_API_KEY
     # generateValue: true
