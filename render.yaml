@@ -9,19 +9,23 @@ services:
     name: typesense-data
     mountPath: /typesense-data
     sizeGB: 1  
-  # dockerCommand: >
-      # /opt/typesense-server --data-dir /typesense-data --api-key=$TYPESENSE_API_KEY --listen-address=0.0.0.0 --listen-port=8108 --enable-cors
+  dockerCommand: >
+      /opt/typesense-server --data-dir /typesense-data --analytics-dir /typesense-data/analytics --api-key=$TYPESENSE_API_KEY --api-address=0.0.0.0 --api-port=8108 --enable-cors --analytics-flush-interval=60 --enable-search-analytics=true --analytics-minute-rate-limit=10
   envVars:
   - key: TYPESENSE_API_KEY
-    # generateValue: true
-    value: "HhcS39zzROyiKGGV8PLBqyEg7dtk865s7"
+    generateValue: true
+    # value: "HhcS39zzROyiKGGV8PLBqyEg7dtk865s7"
   - key: TYPESENSE_DATA_DIR
     value: /typesense-data
   - key: TYPESENSE_ENABLE_CORS
     value: true
   - key: TYPESEMSE_API_ADDRESS
     value: 0.0.0.0
+  - key: HOST
+    value: 0.0.0.0
   - key: TYPESEMSE_API_PORT
     value: 8108
+  - key: PORT
+    value: 8108
   - key: TYPESEMSE_ANALYTICS_FLUSH_INTERVAL
-    value: 30
+    value: 60
